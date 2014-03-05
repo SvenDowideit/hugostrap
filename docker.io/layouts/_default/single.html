@@ -1,12 +1,35 @@
 {{ template "chrome/header.html" . }}
-<div class="row-fluid">
-<div class="span12">
-	<div class="span3 toc">
-			{{ .TableOfContents }}
-	</div>
-	<div class="span9">
+
+<div class="container-fluid">
+
+    <!-- Docs nav
+     ================================================== -->
+    <div class="row-fluid main-row">
+
+        <div class="sidebar bs-docs-sidebar">
+            <div class="page-title" >
+                <h4>DOCUMENTATION</h4>
+            </div>
+            
+		{{ .TableOfContents }}
+	    <form>
+	      <input type="text" id="st-search-input" class="st-search-input span3" placeholder="search in documentation" style="width:210px;" />
+          <div id="st-results-container"></div>
+	    </form>
+        </div>
+
+        <!-- body block -->
+        <div class="main-content">
+
+            <!-- Main section
+            ================================================== -->
+            <section id="global" class="containerblock">
 		<h1>{{ .Title }}</h1>
 		{{ .Content }}
-	</div>
+            </section>
+
+        </div>
+    </div>
 </div>
+
 {{ template "chrome/footer.html" . }}
